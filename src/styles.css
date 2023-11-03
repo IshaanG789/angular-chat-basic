@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+.chat-inner-outer {
+    max-height: 300px;
+    overflow-y: scroll;
+    min-height: 300px;
+}
+
+.chat-inner-outer::-webkit-scrollbar {
+    width: 4px;
+  }
+   
+  /* .chat-inner-outer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  } */
+   
+  .chat-inner-outer::-webkit-scrollbar-thumb {
+    background-color: rgb(204, 204, 204);
+    outline: 1px solid rgb(197, 197, 197);
+  }
+ .prof {
+
+    width: 45px !important;
+    height: 48px !important;
+    border-radius: 41px !important;
+
+  }

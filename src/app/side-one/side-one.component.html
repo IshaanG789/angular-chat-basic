@@ -1,0 +1,60 @@
+<div class="row d-flex justify-content-center second_chat">
+  <div class="col-12">
+    <div class="card col-7 p -0" id="chat1" style="border-radius: 15px">
+      <div
+        class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+        style="border-top-left-radius: 15px; border-top-right-radius: 15px"
+      >
+        <i class="fas fa-angle-left"></i>
+        <p class="mb-0 fw-bold">Live chat {{ userId }}</p>
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="card-body">
+        <div class="chat-inner-outer">
+          <ng-container *ngIf="data.length">
+            <ng-container *ngFor="let user of data">
+              <div
+                *ngIf="user?.userId === userId; else elseTemp"
+                class="d-flex flex-row justify-content-start mb-4"
+              >
+                <img [src]="user?.image" alt="avatar 1" class="prof" />
+                <div
+                  class="p-3 ms-3"
+                  style="
+                    border-radius: 15px;
+                    background-color: rgba(57, 192, 237, 0.2);">
+                  <p class="small mb-0">{{ user.message }}</p>
+                </div>
+              </div>
+              <ng-template #elseTemp>
+                <div class="d-flex flex-row justify-content-end mb-4">
+                  <div
+                    class="p-3 me-3 border"
+                    style="border-radius: 15px; background-color: #fbfbfb"
+                  >
+                    <p class="small mb-0">{{ user.message }}</p>
+                  </div>
+                  <img [src]="user?.image" alt="avatar 1" class="prof" />
+                </div>
+              </ng-template>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="form-outline">
+          <textarea
+            class="form-control"
+            [(ngModel)]="messageUserT"
+            id="textAreaExample"
+            rows="1"
+          ></textarea>
+          <label class="form-label" for="textAreaExample"
+            >Type your message</label
+          >
+          <button class="btn btn-info float-end mt-2" (click)="send()">
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
